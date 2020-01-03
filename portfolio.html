@@ -1,8 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script type="text/javascript">
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ["Task", "link", "Hours per Day"],
+          [
+            "Javascript",
+            "https://github.com/schofield-r?utf8=%E2%9C%93&tab=repositories&q=&type=&language=javascript",
+            11
+          ],
+          [
+            "CSS",
+            "https://github.com/schofield-r?utf8=%E2%9C%93&tab=repositories&q=&type=&language=css",
+            2
+          ],
+          ["SQL", "", 2],
+          [
+            "HTML",
+            "https://github.com/schofield-r?utf8=%E2%9C%93&tab=repositories&q=&type=&language=html",
+            4
+          ],
+          ["Java", "", 1]
+        ]);
+        var view = new google.visualization.DataView(data);
+        view.setColumns([0, 2]);
+
+        var options = {
+          title: "My Coding laguages",
+          pieHole: 0.6,
+          pieSliceTextStyle: {
+            color: "black",
+            fontSize: 14
+          },
+          backgroundColor: "#C9C9C9",
+          pieSliceText: "none",
+          colors: ["#EB5E55", "#3A3335", "#D81E5B", "#FDF0D5", "#C6D8D3"],
+          pieSliceBorderColor: ""
+        };
+        var chart = new google.visualization.PieChart(
+          document.getElementById("donutchart")
+        );
+        chart.draw(view, options);
+        var selectHandler = function(e) {
+          window.location = data.getValue(chart.getSelection()[0]["row"], 1);
+        };
+
+        google.visualization.events.addListener(chart, "select", selectHandler);
+      }
+    </script>
+
     <link rel="stylesheet" href="index.css" />
     <link rel="stylesheet" href="icons/css/all.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -12,7 +71,7 @@
     <header>
       <h1>
         Portfolio <i class="fas fa-terminal"></i
-        ><a class="git" href="https://github.com/schofield-r" alt=""
+        ><a class="git" href="https://github.com/schofield-r" alt="gitHub link"
           ><i class="fab fa-github fa-1x"></i
         ></a>
       </h1>
@@ -36,8 +95,13 @@
     <main>
       <p>
         I started out by training on
-        <a href="https://www.codewars.com/users/Rhiannon%20S">Codewars</a> and
-        <a href="https://www.freecodecamp.org/rhiannon_s">FreeCodeCamp</a>
+        <a href="https://www.codewars.com/users/Rhiannon%20S" alt="codewars"
+          >Codewars</a
+        >
+        and
+        <a href="https://www.freecodecamp.org/rhiannon_s" alt="freecodecamp"
+          >FreeCodeCamp</a
+        >
         <i class="fab fa-free-code-camp"></i>
         <br />
         This is the first HTML project I made, it's very simple and is missing a
@@ -50,10 +114,12 @@
       <embed class="checklist" src="checklist-app/dom-mini-apps/index.html" />
       <div className="gitlink">
         Find me on gitHub
-        <a href="https://github.com/schofield-r" alt=""
+        <a href="https://github.com/schofield-r" alt="gitHub link"
           ><i class="fab fa-github fa-3x"></i
         ></a>
       </div>
+      <div id="donutchart" style="width: 900px; height: 500px;"></div>
+      <i class="devicon-mysql-plain"></i> mysql
     </main>
   </body>
 </html>
