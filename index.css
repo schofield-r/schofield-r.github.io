@@ -1,17 +1,22 @@
 body {
   background-color: #C9C9C9;
   color: #1F2421;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:  'Inconsolata', monospace;
 
   max-width: 90%;
   margin: 0 auto;
-}
+ }
+ main{
+   display:flex;
+ }
+ 
+ /*
 main {
   max-width: 80%;
   float: left;
   padding-left: 160px;
   padding-right: 0px;
-}
+} */
 .git-picture{
     max-width: 200px;
   max-height: 100px;
@@ -28,19 +33,19 @@ main {
  margin-left:auto;
   margin-right:auto;
 }
-ul {
+nav ul {
   list-style-type: none;
-  margin: 0;
+  margin-right:20px;
   padding: 0;
   width: 150px;
   background-color: #A3A3A3;
   height: 100%;
-  position:fixed;
+  /* position:fixed; */
   overflow: auto;
   
 }
 
-li a {
+nav li a {
   display: block;
   color: #424242;
   padding: 16px 16px;
@@ -51,7 +56,7 @@ li a {
 }
 
 /* Change the link color on hover */
-li a:hover {
+nav li a:hover {
   background-color: rgba(250, 249, 243, 0.87);
   color: #1F2421;
 }
@@ -78,22 +83,6 @@ a:hover{
   color: rgb(52, 145, 189);
   font-weight: bolder ;
 }
-.checklist{
-  /* border-top-width: 10px;
-  border: 10px;
-  border-color:#424242;
-  border-block: 10px;
-  border-style: solid;
-  border-radius: 6px; */
-  /* width:300px; */
-  /* display:block; */
- margin-left:auto;
-  margin-right:auto;
-  
-}
-/* p{
-  background-color: #A3A3A3;
-} */
 .gitlink{
 padding-top: 0px;
 padding-bottom: 0px;
@@ -101,3 +90,41 @@ margin-top: 0px;
 
 
 }
+/* Style the buttons that are used to open and close the accordion panel */
+/* .accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+} */
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+/* .active, .accordion:hover {
+  background-color: #ccc;
+} */
+
+/* Style the accordion panel. Note: hidden by default */
+/* .panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+} */
+/* .accordion:after { */
+  /* content: '\02795';  */
+  /* Unicode character for "plus" sign (+) */
+  /* font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+} */
+
+/* .active:after {
+  content: "\2796";  */
+  /* Unicode character for "minus" sign (-) */
+/* } */
